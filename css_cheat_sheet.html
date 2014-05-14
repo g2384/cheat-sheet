@@ -1,0 +1,119 @@
+<title>CSS Cheat Sheet</title>
+more: http://www.lesliefranke.com/files/reference/csscheatsheet.html, http://www.pxleyes.com/blog/wp-content/uploads/2010/03/css-cheatsheet-portrait.pdf
+<style>
+table{font-family:Courier;width:100%;border-spacing: 0;border-top:1px solid #888888;}
+td {border-bottom:1px solid #888888;padding:5px 5px;}
+tr:hover{background-color:#eeeeee;}
+ol{margin:0 0;}
+.div{background-color:#ddd;font-weight:bold;}
+</style>
+<script>
+function fetchHeader(url, wch) {
+    try {
+        var req=new XMLHttpRequest();
+        req.open("HEAD", url, false);
+        req.send(null);
+        if(req.status== 200){
+            return req.getResponseHeader(wch);
+        }
+        else return false;
+    } catch(er) {
+        return er.message;
+    }
+}
+document.write("<br>Last modified: "+fetchHeader(location.href,'Last-Modified'));
+</script>
+<table>
+<tr><td colspan=3 class=div>Selector</td></tr>
+<tr><td>*</td><td>All elements</td></tr>
+<tr><td>div</td><td>&lt;div&gt;</td></tr>
+<tr><td>div *</td><td>All elements within &lt;div&gt;</td></tr>
+<tr><td>div span</td><td>&lt;span&gt; within &lt;div&gt;</td></tr>
+<tr><td>div, span</td><td>&lt;div&gt; and &lt;span&gt;</td></tr>
+<tr><td>div &gt; span</td><td>&lt;span&gt; with parent &lt;div&gt;</td></tr>
+<tr><td>div + span</td><td>&lt;span&gt; preceded by &lt;div&gt; </td></tr>
+<tr><td>.class</td><td>Elements of class "class"</td></tr>
+<tr><td>div.class</td><td>&lt;div&gt; of class "class"</td></tr>
+<tr><td>#itemid</td><td>Element with id "itemid"</td></tr>
+<tr><td>div#itemid</td><td>&lt;div&gt; with id "itemid"</td></tr>
+<tr><td>a[attr]</td><td>&lt;a&gt; with attribute "attr"</td></tr>
+<tr><td>a[attr='x']</td><td>&lt;a&gt; when "attr" is "x"</td></tr>
+<tr><td>a[class~='x']</td><td>&lt;a&gt; when class is a list containing 'x'</td></tr>
+<tr><td>a[lang|='en']</td><td>&lt;a&gt; when lang begins "en"</td></tr>
+<tr><td colspan=3 class=div>Pseudo-Selectors and Pseudo-Classes</td></tr>
+<tr><td>:first-child</td><td>First child element</td></tr>
+<tr><td>:first-line</td><td>First line of element</td></tr>
+<tr><td>:first-letter</td><td>First letter of element</td></tr>
+<tr><td>:hover</td><td>Element with mouse over</td></tr>
+<tr><td>:active</td><td>Active element</td></tr>
+<tr><td>:focus</td><td>Element with focus</td></tr>
+<tr><td>:link</td><td>Unvisited links</td></tr>
+<tr><td>:visited</td><td>Visited links</td></tr>
+<tr><td>:lang(var)</td><td>Element with language "var"</td></tr>
+<tr><td>:before</td><td>Before element</td></tr>
+<tr><td>:after</td><td>After element</td></tr>
+<tr><td colspan=3 class=div>Sizes and Colours</td></tr>
+<tr><td>0</td><td>0 requires no unit</td></tr>
+<tr><td>Relative Sizes</td><td>
+em: 1em equal to font size of parent (same as 100%)<br>
+ex: Height of lower case "x"<br>
+%: Percentage</td></tr>
+<tr><td>Absolute Sizes: </td><td>
+px: Pixels<br>
+cm: Centimeters<br>
+mm: Millimeters<br>
+in: Inches<br>
+pt: 1pt = 1/72in<br>
+pc: 1pc = 12pt</td></tr>
+<tr><td>Colours: </td><td>
+#789abc: RGB Hex Notation<br>
+#acf: Equates to "#aaccff"<br>
+rgb(0,25,50): Value of each of red, green, and blue. 0 to 255, may be swapped for percentages.</td></tr>
+<tr><td class=div>box</td><td>margin, margin-top, margin-right, margin-bottom, margin-left<br>
+padding, padding-top, padding-right, padding-bottom, padding-left<br>
+border, border-top, border-bottom, border-right, border-left<br>
+border-color, border-top-color, border-right-color, border-bottom-color, border-left-color<br>
+border-style, border-top-style, border-right-style, border-bottom-style, border-left-style<br>
+border-width, border-top-width, border-right-width, border-bottom-width, border-left-width </td></tr>
+
+<tr><td class=div>Dimension</td><td>width, min-width, max-width<br>
+height, min-height, max-height<br>
+vertical-align</td></tr>
+<tr><td colspan=3 class=div>Cursor (Move mouse over for testing) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#values">More</a></td></tr>
+ <td style="cursor: auto">cursor: auto</td>
+          <td style="cursor: auto">the default cursor</td></tr>
+        <tr>
+          <td style="cursor: crosshair">cursor: crosshair</td>
+          <td style="cursor: crosshair">gun-style cross</td></tr>
+        <tr>
+          <td style="cursor: default">cursor: default</td>
+          <td style="cursor: default">no change</td></tr>
+        <tr>
+          <td style="cursor: pointer; cursor: hand;">cursor: pointer; cursor: hand</td>
+          <td style="cursor: pointer; cursor: hand;">the normal link-hand</td></tr>
+        <tr>
+          <td style="cursor: wait">cursor: wait</td>
+          <td style="cursor: wait">the hourglass</td></tr>
+        <tr>
+          <td style="cursor: text">cursor: text</td>
+          <td style="cursor: text">the text-selecting 'I-beam'</td></tr>
+        <tr>
+          <td style="cursor: help">cursor: help</td>
+          <td style="cursor: help">an arrow with a question-mark</td></tr>
+		<tr><td style="cursor: move">cursor: move</td><td style="cursor: move">crosshair with arrows on the ends</td></tr>
+<tr>
+<td class=div>Resonsive</td>
+<td>@media (max-width:770px) {}</td>
+</tr>
+<tr>
+<td colspan=3 class=div>Centering</td></tr>
+<tr><td>for text</td><td>p,h1{text-align: center}</td></tr>
+<tr><td>for box</td><td>.center {max-width: 500px;margin: 0px auto;}</td></tr>
+<tr><td colspan=3 class=div>Font</td></tr>
+<tr><td>@font-face</td><td>
+@font-face {font-family: DeliciousRoman;<br>
+      src: url(http://www.font-face.com/fonts/delicious/Delicious-Roman.otf);}<br>
+p {font-family: DeliciousRoman, Helvetica, Arial, sans-serif;}</td>
+</tr>
+<tr><td>font-weight</td><td>normal, bold, bolder, lighter, number, initial, inherit</td></tr>
+</table>
