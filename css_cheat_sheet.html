@@ -6,6 +6,7 @@ td {border-bottom:1px solid #888888;padding:5px 5px;}
 tr:hover{background-color:#eeeeee;}
 ol{margin:0 0;}
 .div{background-color:#ddd;font-weight:bold;}
+.demo{width:100px;height:100px;background-color:#aaa}
 </style>
 <script>
 function fetchHeader(url, wch) {
@@ -68,7 +69,9 @@ pc: 1pc = 12pt</td></tr>
 <tr><td>Colours: </td><td>
 #789abc: RGB Hex Notation<br>
 #acf: Equates to "#aaccff"<br>
-rgb(0,25,50): Value of each of red, green, and blue. 0 to 255, may be swapped for percentages.</td></tr>
+rgb(0,25,50): Value of each of red, green, and blue. 0 to 255, may be swapped for percentages.
+rgba(0, 0, 0, 0.39): red, green, blue, transparent(0-1)
+</td></tr>
 <tr><td class=div>box</td><td>margin, margin-top, margin-right, margin-bottom, margin-left<br>
 padding, padding-top, padding-right, padding-bottom, padding-left<br>
 border, border-top, border-bottom, border-right, border-left<br>
@@ -82,15 +85,15 @@ vertical-align</td></tr>
 <tr><td colspan=3 class=div>Cursor (Move mouse over for testing) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#values">More</a></td></tr>
  <td style="cursor: auto">cursor: auto</td>
           <td style="cursor: auto">the default cursor</td></tr>
+        <tr style="cursor: crosshair">
+          <td>cursor: crosshair</td>
+          <td>gun-style cross</td></tr>
+        <tr style="cursor: default">
+          <td>cursor: default</td>
+          <td>no change</td></tr>
         <tr>
-          <td style="cursor: crosshair">cursor: crosshair</td>
-          <td style="cursor: crosshair">gun-style cross</td></tr>
-        <tr>
-          <td style="cursor: default">cursor: default</td>
-          <td style="cursor: default">no change</td></tr>
-        <tr>
-          <td style="cursor: pointer; cursor: hand;">cursor: pointer; cursor: hand</td>
-          <td style="cursor: pointer; cursor: hand;">the normal link-hand</td></tr>
+          <td style="cursor: pointer;">cursor: pointer; cursor: hand</td>
+          <td style="cursor: pointer;">the normal link-hand</td></tr>
         <tr>
           <td style="cursor: wait">cursor: wait</td>
           <td style="cursor: wait">the hourglass</td></tr>
@@ -116,4 +119,57 @@ vertical-align</td></tr>
 p {font-family: DeliciousRoman, Helvetica, Arial, sans-serif;}</td>
 </tr>
 <tr><td>font-weight</td><td>normal, bold, bolder, lighter, number, initial, inherit</td></tr>
+<tr>
+<td colspan=3 class=div>Shadow, Blur</td></tr>
+<tr><td>shadow</td><td>3px 3px 5px 6px #ccc: <br>horizontal offset, vertical offset, blur radius(optional), spread radius(optional), Color</td></tr>
+<tr>
+<td>
+<pre>.shadow {
+-webkit-box-shadow: 0 8px 6px -6px black;
+-moz-box-shadow: 0 8px 6px -6px black;
+box-shadow: 0 8px 6px -6px black;
+}
+</pre>
+<div class=demo style="
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;"></div></td>
+<td><pre>.shadow {
+-moz-box-shadow:    3px 3px 5px 6px #ccc;
+-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+box-shadow:         3px 3px 5px 6px #ccc;
+}</pre>
+<div class=demo style="
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+"></div>
+</td>
+</tr>
+<tr>
+<td>
+<pre>.blur {
+color: transparent;
+text-shadow: 0 0 5px #333;
+}
+</pre>
+<div style="
+	color: transparent;
+   text-shadow: 0 0 5px rgba(0,0,0,0.5);">Hello</div></td>
+<td><pre>.multiple-shadow{
+text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
+}</pre>
+<div style="
+ text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;">Hello</div>
+</td>
+</tr>
+<tr>
+<td>
+rotate
+</td>
+<td><pre>transform:rotate(90deg);
+-ms-transform:rotate(90deg); /* IE 9 */
+-webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */</pre>
+</td>
+</tr>
 </table>
