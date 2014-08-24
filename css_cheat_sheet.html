@@ -144,13 +144,12 @@ box-shadow:         3px 3px 5px 6px #ccc;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow:         3px 3px 5px 6px #ccc;
 "></div>
-</td>
-</tr>
-<tr>
-<td>
-<pre>.blur {
-color: transparent;
-text-shadow: 0 0 5px #333;
+</td></tr>
+<tr><td>
+<pre>
+//text-shadow
+.blur {
+color: transparent;text-shadow: 0 0 5px #333;
 }
 </pre>
 <div style="
@@ -161,15 +160,57 @@ text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
 }</pre>
 <div style="
  text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;">Hello</div>
-</td>
-</tr>
-<tr>
-<td>
+</td></tr>
+<tr><td>
+<div class="shadow_animation">ease transition:<br><br>
+transition: [property] 0.3s ease-in-out;<br>
+-moz-transition: [property] 0.3s ease-in-out;<br>
+-webkit-transition: [property] 0.3s ease-in-out;</div></td>
+<style>.shadow_animation{padding:10px 10px;margin:5px 15px;
+background-color: #fff;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #adacac, direction = 135, strength = 2);
+	transition: box-shadow 0.3s ease-in-out;
+-moz-transition: -moz-box-shadow 0.3s ease-in-out;
+-webkit-transition: -webkit-box-shadow 0.3s ease-in-out;}
+	.shadow_animation:hover {
+    box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -moz-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -webkit-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #979797, direction = 135, strength = 3);
+}</style>
+<td><pre>.shadow{display:block;padding:10px 10px;margin:5px 15px;
+background-color: #fff;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #adacac, direction = 135, strength = 2);
+	transition: box-shadow 0.3s ease-in-out;
+-moz-transition: -moz-box-shadow 0.3s ease-in-out;
+-webkit-transition: -webkit-box-shadow 0.3s ease-in-out;padding:0 10px;}
+	.shadow:hover {
+    box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -moz-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -webkit-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #979797, direction = 135, strength = 3);
+}</pre>
+</td></tr>
+<tr><td>
 rotate
 </td>
 <td><pre>transform:rotate(90deg);
 -ms-transform:rotate(90deg); /* IE 9 */
 -webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */</pre>
+</td></tr>
+<tr><td>
+Navbar center
 </td>
-</tr>
+<td><pre>
+.navbar{margin: 0 auto;width: 100%;text-align: center;height:70px;position:fixed;top:0;}
+.navbar ul{list-style: none;}
+.navbar li{display: inline-block;}//(!important, to center)
+.navbar a{height:100%;}</pre>
+</td></tr>
 </table>
