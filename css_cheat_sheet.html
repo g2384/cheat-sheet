@@ -1,3 +1,4 @@
+<meta charset="utf-8" />
 <title>CSS Cheat Sheet</title>
 more: http://www.lesliefranke.com/files/reference/csscheatsheet.html, http://www.pxleyes.com/blog/wp-content/uploads/2010/03/css-cheatsheet-portrait.pdf
 <style>
@@ -119,6 +120,7 @@ vertical-align</td></tr>
 p {font-family: DeliciousRoman, Helvetica, Arial, sans-serif;}</td>
 </tr>
 <tr><td>font-weight</td><td>normal, bold, bolder, lighter, number, initial, inherit</td></tr>
+
 <tr>
 <td colspan=3 class=div>Shadow, Blur</td></tr>
 <tr><td>shadow</td><td>3px 3px 5px 6px #ccc: <br>horizontal offset, vertical offset, blur radius(optional), spread radius(optional), Color</td></tr>
@@ -214,8 +216,9 @@ Navbar center
 .navbar a{height:100%;}</pre>
 </td></tr>
 <tr><td>
-&lt;div class=&quot;page-wrap&quot;&gt; Content! &lt;/div&gt;
-&lt;footer class=&quot;site-footer&quot;&gt; Sticky Footer. &lt;/footer&gt;
+<strong>Sticky Footer</strong><br>
+&lt;div class=&quot;page-wrap&quot;&gt; Content &lt;/div&gt;<br>
+&lt;footer class=&quot;site-footer&quot;&gt; Footer &lt;/footer&gt;
 </td>
 <td><pre>
 * {
@@ -238,6 +241,222 @@ html, body {
 }
 .site-footer {
   background: orange;
-}</pre>
+}
+</pre>
 </td></tr>
+<tr><td>Button With Line Breaks</td><td>&lt;input type="button" value="Really&amp;#x00A;Tall&amp;#x00A; Button"&gt;<br><input type="button" value="Really&#x00A;Tall&#x00A; Button"></td></tr>
+<tr><td>3D effect, 2 color, text</td><td><div class="threeD">
+	<p class="sniglet">3D text Example</p>
+	<p class="lobster"><span>Lobster in a box</span></p></div>
+<style>
+.threeD p {
+font-family: arial, serif;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+.threeD p.sniglet {
+  text-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+}
+.threeD p.lobster {
+  margin-top: 1.2em;
+}
+.threeD p.lobster span {
+  padding: 20px 40px;
+  color: #6280b7;
+  background: #fff;
+  -webkit-box-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+  -moz-box-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+  box-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+}</style></td></tr>
+<tr>
+
+<td>Button style
+</td>
+<td>
+<input type="search" value="Search"/>
+<input type="number" value="55" min="0" max="100" step="5" />
+
+<style>
+input {
+    display:block;
+    padding: 2px;
+}
+
+input:focus {
+    outline-color: #236DCD;
+}
+
+input[type=search] {
+    color: #236DCD;
+    border-radius: 4px;
+}
+
+input[type=search]::-webkit-search-cancel-button  {
+    -webkit-appearance: none;
+    position:relative;
+    height: 16px;
+    width: 16px;
+    background: #d5d5d5;
+    color:#fff;
+    font-size: 1.1em;
+    text-shadow: 0 1px 0 #666;
+    border-radius: 50%;
+    margin:0;
+    cursor:pointer;
+    box-shadow: inset 0 2px 5px -2px #666; 
+}
+
+input[type=search]::-webkit-search-cancel-button:hover {
+    background: #aaa;
+}
+
+input[type=search]::-webkit-search-cancel-button:active {
+    background: #f99;
+}
+
+input[type=search]::-webkit-search-cancel-button:before {
+    content: "✕";
+    position:absolute;
+    top:0px;
+    right:3px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor:pointer;
+    display:block;
+    width:8px;
+    color: #333;
+    text-align:center;
+    position:relative;
+}
+
+input[type=number]::-webkit-inner-spin-button:hover { 
+    color: #236DCD;
+}
+
+input[type=number]::-webkit-inner-spin-button:before,
+input[type=number]::-webkit-inner-spin-button:after {
+    content: "^";
+    position:absolute;
+    right: 0;
+    font-family:monospace;
+    line-height:
+}
+
+input[type=number]::-webkit-inner-spin-button:before {
+    top:0px;
+}
+
+input[type=number]::-webkit-inner-spin-button:after {
+    bottom:0px;
+    -webkit-transform: rotate(180deg);
+}</style>
+<input type="button" id="btn" value="Button"/>
+<style>#btn{
+padding: 5px 8px;
+font-size: 16px;
+line-height: 1.33;
+border-radius: 6px;
+color: #333;
+border-color: #ccc;
+cursor: pointer;
+text-align: center;
+white-space: nowrap;
+border: 1px solid rgb(0, 113, 153);}
+#btn:hover{background-color:#afd9ee}</style>
+</td>
+</tr>
+<tr>
+<td style="background-color:#888"><div class="corners">
+   Tucked Corners
+</div>
+</td>
+<td>
+<pre>.corners { 
+    background: #f6f6f6;
+    height: 70px;
+    margin: 50px auto;
+    padding:20px 5px 5px 15px;
+    max-width: 600px;
+    position: relative;
+    width: 80%;
+    -webkit-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+       -moz-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+            box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+}
+/* Corner Effect */
+.corners:after,
+.corners:before {
+    background: #e6e6e6;
+    content: '';
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    width: 100px;
+    -webkit-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+       -moz-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+            box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+}
+.corners:after {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+.corners:before {
+    right: -50px;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+}</pre>
+<style>
+.corners { 
+    background: #f6f6f6;
+    height: 70px;
+    margin: 50px auto;
+    padding:20px 5px 5px 15px;
+    max-width: 600px;
+    position: relative;
+    width: 80%;
+    -webkit-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+       -moz-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+            box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+}
+/* Corner Effect */
+.corners:after,
+.corners:before {
+    background: #e6e6e6;
+    content: '';
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    width: 100px;
+    -webkit-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+       -moz-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+            box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+}
+.corners:after {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+.corners:before {
+    right: -50px;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+}</style>
+</td>
+</tr>
 </table>
