@@ -2,9 +2,12 @@
 <title>CSS Cheat Sheet</title>
 more: http://www.lesliefranke.com/files/reference/csscheatsheet.html, http://www.pxleyes.com/blog/wp-content/uploads/2010/03/css-cheatsheet-portrait.pdf
 <style>
-table{font-family:Courier;width:100%;border-spacing: 0;border-top:1px solid #888888;}
+table{font-family:Consolas;width:100%;border-spacing: 0;border-top:1px solid #888888;font-size:16px;}
+pre{font-family:Consolas;font-size:16px;}
 td {border-bottom:1px solid #888888;padding:5px 5px;}
 tr:hover{background-color:#eeeeee;}
+a{text-decoration:none;color:#36c}
+a:hover{color:#fff;background:#36c}
 ol{margin:0 0;}
 .div{background-color:#ddd;font-weight:bold;}
 .demo{width:100px;height:100px;background-color:#aaa}
@@ -106,23 +109,196 @@ vertical-align</td></tr>
           <td style="cursor: help">an arrow with a question-mark</td></tr>
 		<tr><td style="cursor: move">cursor: move</td><td style="cursor: move">crosshair with arrows on the ends</td></tr>
 <tr>
-<td class=div>Resonsive</td>
+<td class=div>Responsive</td>
 <td>@media (max-width:770px) {}</td>
 </tr>
 <tr>
 <td colspan=3 class=div>Centering</td></tr>
 <tr><td>for text</td><td>p,h1{text-align: center}</td></tr>
-<tr><td>for box</td><td>.center {max-width: 500px;margin: 0px auto;}</td></tr>
-<tr><td colspan=3 class=div>Font</td></tr>
+<tr><td>for page</td><td>.center {max-width: 500px;margin: 0px auto;}</td></tr>
+<tr><td>for image</td><td><pre>
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+&#x3C;img class=&#x22;displayed&#x22; src=&#x22;...&#x22; alt=&#x22;...&#x22;&#x3E;
+</pre></td></tr>
+<tr><td>for block</td><td><pre>
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em
+}
+&#x3C;p class=&#x22;blocktext&#x22;&#x3E;This rather...&#x3C;/p&#x3E;</pre></td></tr>
+<tr><td>centering vertically</td><td><pre>
+div.container {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle
+}
+&#x3C;divclass=&#x22;container&#x22;&#x3E;
+  &#x3C;P&#x3E;This small paragraph...&#x3C;/p&#x3E;
+&#x3C;/div&#x3E;
+</pre></td></tr>
+<tr><td>centering vertically (in CSS level 3)</td><td><pre>
+div.container {
+   height: 10em;
+   position: relative }              /* 1 */
+div.container p {
+   margin: 0;
+   position: absolute;               /* 2 */
+   top: 50%;                         /* 3 */
+   transform: translate(0, -50%) }   /* 4 */
+   
+&#x3C;div class=container3&#x3E;
+  &#x3C;p&#x3E;This paragraph&#x2026;
+&#x3C;/div&#x3E;
+
+The essential rules are:
+1. Make the container relatively positioned, which declares it to be a container for absolutely positioned elements.
+2. Make the element itself absolutely positioned.
+3. Place it halfway down the container with 'top: 50%'. (Note that 50%' here means 50% of the height of the container.)
+4. Use a translation to move the element up by half its own height. (The '50%' in 'translate(0, -50%)' refers to the height of the element itself.)
+</pre></td></tr>
+<tr><td>centering in the viewpoint (in CSS level 3)</td><td><pre>
+section {
+	background: black;
+	color: white;
+	border-radius: 1em;
+	padding: 1em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%) 
+}
+
+  &#x3C;section&#x3E;
+    &#x3C;h1&#x3E;Nicely centered&#x3C;/h1&#x3E;
+    &#x3C;p&#x3E;This text block is vertically centered.
+    &#x3C;p&#x3E;Horizontally, too, if the window is wide enough.
+  &#x3C;/section&#x3E;
+</pre></td></tr>
+<tr><td colspan=3 class=div>Font <a href="http://www.google.com/fonts">(Google fonts resources)</a></td></tr>
+<tr><td>Font</td><td>
+<pre>p{
+	font: <i>font-style font-variant font-weight font-size/line-height font-family</i>|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;
+	/*caption, icon, menu, message-box, small-caption, status-bar, initial, inherit <strong>have no obvious effect</strong>*/
+
+	font: 15px arial, sans-serif;
+	font: italic 20px Serif;
+    font: italic bold 12px/30px Georgia, serif;
+	
+}</pre>
+</td></tr>
+<tr><td>Font Stacks</td><td>
+<pre>
+/* Times New Roman-based stack */
+font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+
+/* Modern Georgia-based serif stack */
+font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+/* Traditional Garamond-based serif stack */
+font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+
+/* Helvetica/Arial-based sans serif stack */
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Verdana-based sans serif stack */
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+
+/* Trebuchet-based sans serif stack */
+font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+
+/* Impact-based sans serif stack */
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+
+/* Monospace stack */
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+</pre></td></tr>
 <tr><td>@font-face</td><td>
 @font-face {font-family: DeliciousRoman;<br>
       src: url(http://www.font-face.com/fonts/delicious/Delicious-Roman.otf);}<br>
 p {font-family: DeliciousRoman, Helvetica, Arial, sans-serif;}</td>
 </tr>
 <tr><td>font-weight</td><td>normal, bold, bolder, lighter, number, initial, inherit</td></tr>
-
+<tr><td>no underline(for link)</td><td>
+a {text-decoration:none}</td></tr>
+<tr><td>Link effects</td><td>
+<a href="http://tympanus.net/Development/CreativeLinkEffects/">Creative Link Effects</a><br>
+<a href="http://tympanus.net/Development/IconHoverEffects/">Icon Hover Effects</a><br>
+<a href="http://ianlunn.github.io/Hover/">Hover.css</a></td>
+</tr>
+<tr><td>Change Text Selection Color</td><td>
+<style>.selection::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+.selection::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}</style><pre class="selection">
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+/*Within the selection selector, <strong>color</strong> and <strong>background</strong> are the only properties that work. */
+</pre>
+</td></tr>
 <tr>
-<td colspan=3 class=div>Shadow, Blur</td></tr>
+<td></td>three columns<td><pre>
+.three-column {
+  padding: 1em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
+}
+</pre>
+<style>.three-column {
+  padding: 1em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
+}</style>
+<div class="three-column" style="width:600px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac.
+</div>
+</td>
+</tr>
+<tr><td>Drop Caps</td><td>
+<style>.first_child:first-of-type::first-letter { font-size:300%; color: red; }</style>
+<pre>
+p:first-of-type::first-letter {
+	font-size:300%; color: red;
+}</pre>
+<div class="first_child">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique lobortis orci ac lacinia. Fusce eu purus eget diam vehicula auctor nec eu elit.</p><p> Morbi consequat facilisis orci vel malesuada. Donec ultrices molestie sollicitudin. Aliquam pharetra libero enim. Donec et suscipit massa.</p><p> Donec dui odio, dignissim non sodales et, tincidunt a sapien. Phasellus elit nibh, adipiscing sed blandit vel, interdum et arcu.</p>
+</div>
+
+</td></tr>
+<tr><td colspan=3 class=div>image</td></tr>
+<tr><td>Flip image</td><td>
+<pre>
+img {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+</pre>
+</td></tr>
+
+<tr><td colspan=3 class=div>Shadow, Blur</td></tr>
 <tr><td>shadow</td><td>3px 3px 5px 6px #ccc: <br>horizontal offset, vertical offset, blur radius(optional), spread radius(optional), Color</td></tr>
 <tr>
 <td>
@@ -459,4 +635,88 @@ border: 1px solid rgb(0, 113, 153);}
 }</style>
 </td>
 </tr>
+<tr><td>stitched</td><td><style>
+.stitched {
+   padding: 20px;
+   margin: 10px;
+   background: #ff0030;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+}</style><div class="stitched">Stitched</div></td></tr>
+
+<tr><td>corner ribbon</td><td>
+<style>.wrapper-ribbon {
+  margin: 50px auto;
+  width: 280px;
+  height: 370px;
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 8px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 90;
+}
+
+.ribbon-wrapper-green {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}
+
+.ribbon-green {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: #BFDC7A;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+  color: #6a6340;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-green:before, .ribbon-green:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-green:before {
+  left: 0;
+}
+.ribbon-green:after {
+  right: 0;
+}</style>
+<div class="wrapper-ribbon">
+       <div class="ribbon-wrapper-green"><div class="ribbon-green">NEWS</div></div>
+</div></td></tr>
+<tr><td></td><td><style></style><div></div></td></tr>
 </table>
