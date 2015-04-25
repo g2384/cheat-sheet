@@ -1,0 +1,129 @@
+<meta charset="UTF-8">
+<body>
+<style>
+body{margin:0 auto;max-width:100%;tab-size: 4;  font-family:Helvetica, arial;}
+table{font-family:Courier;width:100%;border-spacing: 0;border-top:1px solid #888888;}
+td {border-bottom:1px solid #888888;padding:5px 5px;}
+tr:hover{background-color:#eeeeee;}
+</style>
+<table>
+<tr>
+<td>Table</td>
+<td>
+<pre>
+&#x3C;table&#x3E;
+&#x9;&#x3C;caption&#x3E;&#x3C;/caption&#x3E;
+&#x9;&#x3C;colgroup&#x3E;
+&#x9;&#x9;&#x3C;col&#x3E;
+&#x9;&#x9;&#x3C;col&#x3E;
+&#x9;&#x3C;/colgroup&#x3E;
+&#x9;&#x3C;thead&#x3E;
+&#x9;&#x9;&#x3C;tr&#x3E;
+&#x9;&#x9;&#x9;&#x3C;th&#x3E;&#x3C;/th&#x3E;
+&#x9;&#x9;&#x9;&#x3C;th&#x3E;&#x3C;/th&#x3E;
+&#x9;&#x9;&#x3C;/tr&#x3E;
+&#x9;&#x3C;/thead&#x3E;
+&#x9;&#x3C;tfoot&#x3E;
+&#x9;&#x9;&#x3C;tr&#x3E;
+&#x9;&#x9;&#x9;&#x3C;td&#x3E;&#x3C;/td&#x3E;
+&#x9;&#x9;&#x9;&#x3C;td&#x3E;&#x3C;/td&#x3E;
+&#x9;&#x9;&#x3C;/tr&#x3E;
+&#x9;&#x3C;/tfoot&#x3E;
+&#x9;&#x3C;tbody&#x3E;
+&#x9;&#x9;&#x3C;tr&#x3E;
+&#x9;&#x9;&#x9;&#x3C;td&#x3E;&#x3C;/td&#x3E;
+&#x9;&#x9;&#x9;&#x3C;td&#x3E;&#x3C;/td&#x3E;
+&#x9;&#x9;&#x3C;/tr&#x3E;
+&#x9;&#x9;&#x3C;tr&#x3E;
+&#x9;&#x9;&#x9;&#x3C;td&#x3E;&#x3C;/td&#x3E;
+&#x9;&#x9;&#x9;&#x3C;td&#x3E;&#x3C;/td&#x3E;
+&#x9;&#x9;&#x3C;/tr&#x3E;
+&#x9;&#x3C;/tbody&#x3E;
+&#x3C;/table&#x3E;
+</pre>
+</td>
+</tr>
+<tr>
+<td>HTML entities</td>
+<td><pre>
+<table><tr><td>Result</td><td>Description</td><td>Entity Name</td><td>Entity Number</td></tr><tr><td></td><td>non-breaking space</td><td>&#x26;nbsp;</td><td>&#x26;#160;</td></tr><tr><td>&#x3C;</td><td>Less Than Sign</td><td>&#x26;lt;</td><td>&#x26;#60;</td></tr><tr><td>&#x3E;</td><td>Greater Than Sign</td><td>&#x26;gt;</td><td>&#x26;#62;</td></tr></table></pre></td>
+
+</tr>
+<tr><td>HTML5 Page Structure</td><td>
+<pre>&#x3C;!DOCTYPE HTML&#x3E;
+
+&#x3C;html&#x3E;
+
+&#x3C;head&#x3E;
+&#x9;&#x3C;meta http-equiv=&#x22;Content-Type&#x22; content=&#x22;text/html; charset=UTF-8&#x22; /&#x3E;
+&#x9;&#x3C;title&#x3E;Your Website&#x3C;/title&#x3E;
+&#x3C;/head&#x3E;
+
+&#x3C;body&#x3E;
+
+&#x9;&#x3C;header&#x3E;
+&#x9;&#x9;&#x3C;nav&#x3E;
+&#x9;&#x9;&#x9;&#x3C;ul&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;li&#x3E;Your menu&#x3C;/li&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/ul&#x3E;
+&#x9;&#x9;&#x3C;/nav&#x3E;
+&#x9;&#x3C;/header&#x3E;
+&#x9;
+&#x9;&#x3C;section&#x3E;
+&#x9;
+&#x9;&#x9;&#x3C;article&#x3E;
+&#x9;&#x9;&#x9;&#x3C;header&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;h2&#x3E;Article title&#x3C;/h2&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;p&#x3E;Posted on &#x3C;time datetime=&#x22;2009-09-04T16:31:24+02:00&#x22;&#x3E;September 4th 2009&#x3C;/time&#x3E; by &#x3C;a href=&#x22;#&#x22;&#x3E;Writer&#x3C;/a&#x3E; - &#x3C;a href=&#x22;#comments&#x22;&#x3E;6 comments&#x3C;/a&#x3E;&#x3C;/p&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/header&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/article&#x3E;
+&#x9;&#x9;
+&#x9;&#x9;&#x3C;article&#x3E;
+&#x9;&#x9;&#x9;&#x3C;header&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;h2&#x3E;Article title&#x3C;/h2&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;p&#x3E;Posted on &#x3C;time datetime=&#x22;2009-09-04T16:31:24+02:00&#x22;&#x3E;September 4th 2009&#x3C;/time&#x3E; by &#x3C;a href=&#x22;#&#x22;&#x3E;Writer&#x3C;/a&#x3E; - &#x3C;a href=&#x22;#comments&#x22;&#x3E;6 comments&#x3C;/a&#x3E;&#x3C;/p&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/header&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/article&#x3E;
+&#x9;&#x9;
+&#x9;&#x3C;/section&#x3E;
+
+&#x9;&#x3C;aside&#x3E;
+&#x9;&#x9;&#x3C;h2&#x3E;About section&#x3C;/h2&#x3E;
+&#x9;&#x9;&#x3C;p&#x3E;Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&#x3C;/p&#x3E;
+&#x9;&#x3C;/aside&#x3E;
+
+&#x9;&#x3C;footer&#x3E;
+&#x9;&#x9;&#x3C;p&#x3E;Copyright 2009 Your name&#x3C;/p&#x3E;
+&#x9;&#x3C;/footer&#x3E;
+
+&#x3C;/body&#x3E;
+
+&#x3C;/html&#x3E;</pre></td></tr>
+<tr><td>Left & Right Halves Layout</td><td><pre>
+* { margin: 0; padding: 0; }
+#pagewrap {width:100%; position:relative;}
+#left { position: absolute; left: 0; top: 0; width: 50%; }
+#right { position: absolute; right: 0; top: 0; width: 50%; }
+&#x3C;div id=&#x22;pagewrap&#x22;&#x3E;
+    &#x3C;div id=&#x22;left&#x22;&#x3E;
+        &#x3C;p&#x3E;Left Half&#x3C;/p&#x3E;
+        &#x3C;p&#x3E;test&#x3C;/p&#x3E;
+        &#x3C;p&#x3E;test&#x3C;/p&#x3E;
+    &#x3C;/div&#x3E;
+
+    &#x3C;div id=&#x22;right&#x22;&#x3E;
+        &#x3C;p&#x3E;Right Half&#x3C;/p&#x3E;
+        &#x3C;p&#x3E;test&#x3C;/p&#x3E;
+        &#x3C;p&#x3E;test&#x3C;/p&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+</pre></td></tr>
+<tr><td>Responsive Meta Tag</td><td><pre>
+&#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width&#x22;&#x3E;
+OR
+&#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width, initial-scale=1&#x22;&#x3E;</pre></td></tr>
+<tr><td></td><td><pre></pre></td></tr>
+</table>
+<body>
