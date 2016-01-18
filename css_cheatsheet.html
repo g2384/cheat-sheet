@@ -1,0 +1,722 @@
+<meta charset="utf-8" />
+<title>CSS Cheat Sheet</title>
+more: http://www.lesliefranke.com/files/reference/csscheatsheet.html, http://www.pxleyes.com/blog/wp-content/uploads/2010/03/css-cheatsheet-portrait.pdf
+<style>
+table{font-family:Consolas;width:100%;border-spacing: 0;border-top:1px solid #888888;font-size:16px;}
+pre{font-family:Consolas;font-size:16px;}
+td {border-bottom:1px solid #888888;padding:5px 5px;}
+tr:hover{background-color:#eeeeee;}
+a{text-decoration:none;color:#36c}
+a:hover{color:#fff;background:#36c}
+ol{margin:0 0;}
+.div{background-color:#ddd;font-weight:bold;}
+.demo{width:100px;height:100px;background-color:#aaa}
+</style>
+<script>
+function fetchHeader(url, wch) {
+    try {
+        var req=new XMLHttpRequest();
+        req.open("HEAD", url, false);
+        req.send(null);
+        if(req.status== 200){
+            return req.getResponseHeader(wch);
+        }
+        else return false;
+    } catch(er) {
+        return er.message;
+    }
+}
+document.write("<br>Last modified: "+fetchHeader(location.href,'Last-Modified'));
+</script>
+<table>
+<tr><td colspan=3 class=div>Selector</td></tr>
+<tr><td>*</td><td>All elements</td></tr>
+<tr><td>div</td><td>&lt;div&gt;</td></tr>
+<tr><td>div *</td><td>All elements within &lt;div&gt;</td></tr>
+<tr><td>div span</td><td>&lt;span&gt; within &lt;div&gt;</td></tr>
+<tr><td>div, span</td><td>&lt;div&gt; and &lt;span&gt;</td></tr>
+<tr><td>div &gt; span</td><td>&lt;span&gt; with parent &lt;div&gt;</td></tr>
+<tr><td>div + span</td><td>&lt;span&gt; preceded by &lt;div&gt; </td></tr>
+<tr><td>.class</td><td>Elements of class "class"</td></tr>
+<tr><td>div.class</td><td>&lt;div&gt; of class "class"</td></tr>
+<tr><td>#itemid</td><td>Element with id "itemid"</td></tr>
+<tr><td>div#itemid</td><td>&lt;div&gt; with id "itemid"</td></tr>
+<tr><td>a[attr]</td><td>&lt;a&gt; with attribute "attr"</td></tr>
+<tr><td>a[attr='x']</td><td>&lt;a&gt; when "attr" is "x"</td></tr>
+<tr><td>a[class~='x']</td><td>&lt;a&gt; when class is a list containing 'x'</td></tr>
+<tr><td>a[lang|='en']</td><td>&lt;a&gt; when lang begins "en"</td></tr>
+<tr><td colspan=3 class=div>Pseudo-Selectors and Pseudo-Classes</td></tr>
+<tr><td>:first-child</td><td>First child element</td></tr>
+<tr><td>:first-line</td><td>First line of element</td></tr>
+<tr><td>:first-letter</td><td>First letter of element</td></tr>
+<tr><td>:hover</td><td>Element with mouse over</td></tr>
+<tr><td>:active</td><td>Active element</td></tr>
+<tr><td>:focus</td><td>Element with focus</td></tr>
+<tr><td>:link</td><td>Unvisited links</td></tr>
+<tr><td>:visited</td><td>Visited links</td></tr>
+<tr><td>:lang(var)</td><td>Element with language "var"</td></tr>
+<tr><td>:before</td><td>Before element</td></tr>
+<tr><td>:after</td><td>After element</td></tr>
+<tr><td colspan=3 class=div>Sizes and Colours</td></tr>
+<tr><td>0</td><td>0 requires no unit</td></tr>
+<tr><td>Relative Sizes</td><td>
+em: 1em equal to font size of parent (same as 100%)<br>
+ex: Height of lower case "x"<br>
+%: Percentage</td></tr>
+<tr><td>Absolute Sizes: </td><td>
+px: Pixels<br>
+cm: Centimeters<br>
+mm: Millimeters<br>
+in: Inches<br>
+pt: 1pt = 1/72in<br>
+pc: 1pc = 12pt</td></tr>
+<tr><td>Colours: </td><td>
+#789abc: RGB Hex Notation<br>
+#acf: Equates to "#aaccff"<br>
+rgb(0,25,50): Value of each of red, green, and blue. 0 to 255, may be swapped for percentages.
+rgba(0, 0, 0, 0.39): red, green, blue, transparent(0-1)
+</td></tr>
+<tr><td class=div>box</td><td>margin, margin-top, margin-right, margin-bottom, margin-left<br>
+padding, padding-top, padding-right, padding-bottom, padding-left<br>
+border, border-top, border-bottom, border-right, border-left<br>
+border-color, border-top-color, border-right-color, border-bottom-color, border-left-color<br>
+border-style, border-top-style, border-right-style, border-bottom-style, border-left-style<br>
+border-width, border-top-width, border-right-width, border-bottom-width, border-left-width </td></tr>
+
+<tr><td class=div>Dimension</td><td>width, min-width, max-width<br>
+height, min-height, max-height<br>
+vertical-align</td></tr>
+<tr><td colspan=3 class=div>Cursor (Move mouse over for testing) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#values">More</a></td></tr>
+ <td style="cursor: auto">cursor: auto</td>
+          <td style="cursor: auto">the default cursor</td></tr>
+        <tr style="cursor: crosshair">
+          <td>cursor: crosshair</td>
+          <td>gun-style cross</td></tr>
+        <tr style="cursor: default">
+          <td>cursor: default</td>
+          <td>no change</td></tr>
+        <tr>
+          <td style="cursor: pointer;">cursor: pointer; cursor: hand</td>
+          <td style="cursor: pointer;">the normal link-hand</td></tr>
+        <tr>
+          <td style="cursor: wait">cursor: wait</td>
+          <td style="cursor: wait">the hourglass</td></tr>
+        <tr>
+          <td style="cursor: text">cursor: text</td>
+          <td style="cursor: text">the text-selecting 'I-beam'</td></tr>
+        <tr>
+          <td style="cursor: help">cursor: help</td>
+          <td style="cursor: help">an arrow with a question-mark</td></tr>
+		<tr><td style="cursor: move">cursor: move</td><td style="cursor: move">crosshair with arrows on the ends</td></tr>
+<tr>
+<td class=div>Responsive</td>
+<td>@media (max-width:770px) {}</td>
+</tr>
+<tr>
+<td colspan=3 class=div>Centering</td></tr>
+<tr><td>for text</td><td>p,h1{text-align: center}</td></tr>
+<tr><td>for page</td><td>.center {max-width: 500px;margin: 0px auto;}</td></tr>
+<tr><td>for image</td><td><pre>
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+&#x3C;img class=&#x22;displayed&#x22; src=&#x22;...&#x22; alt=&#x22;...&#x22;&#x3E;
+</pre></td></tr>
+<tr><td>for block</td><td><pre>
+p.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em
+}
+&#x3C;p class=&#x22;blocktext&#x22;&#x3E;This rather...&#x3C;/p&#x3E;</pre></td></tr>
+<tr><td>centering vertically</td><td><pre>
+div.container {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle
+}
+&#x3C;divclass=&#x22;container&#x22;&#x3E;
+  &#x3C;P&#x3E;This small paragraph...&#x3C;/p&#x3E;
+&#x3C;/div&#x3E;
+</pre></td></tr>
+<tr><td>centering vertically (in CSS level 3)</td><td><pre>
+div.container {
+   height: 10em;
+   position: relative }              /* 1 */
+div.container p {
+   margin: 0;
+   position: absolute;               /* 2 */
+   top: 50%;                         /* 3 */
+   transform: translate(0, -50%) }   /* 4 */
+   
+&#x3C;div class=container3&#x3E;
+  &#x3C;p&#x3E;This paragraph&#x2026;
+&#x3C;/div&#x3E;
+
+The essential rules are:
+1. Make the container relatively positioned, which declares it to be a container for absolutely positioned elements.
+2. Make the element itself absolutely positioned.
+3. Place it halfway down the container with 'top: 50%'. (Note that 50%' here means 50% of the height of the container.)
+4. Use a translation to move the element up by half its own height. (The '50%' in 'translate(0, -50%)' refers to the height of the element itself.)
+</pre></td></tr>
+<tr><td>centering in the viewpoint (in CSS level 3)</td><td><pre>
+section {
+	background: black;
+	color: white;
+	border-radius: 1em;
+	padding: 1em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%) 
+}
+
+  &#x3C;section&#x3E;
+    &#x3C;h1&#x3E;Nicely centered&#x3C;/h1&#x3E;
+    &#x3C;p&#x3E;This text block is vertically centered.
+    &#x3C;p&#x3E;Horizontally, too, if the window is wide enough.
+  &#x3C;/section&#x3E;
+</pre></td></tr>
+<tr><td colspan=3 class=div>Font <a href="http://www.google.com/fonts">(Google fonts resources)</a></td></tr>
+<tr><td>Font</td><td>
+<pre>p{
+	font: <i>font-style font-variant font-weight font-size/line-height font-family</i>|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;
+	/*caption, icon, menu, message-box, small-caption, status-bar, initial, inherit <strong>have no obvious effect</strong>*/
+
+	font: 15px arial, sans-serif;
+	font: italic 20px Serif;
+    font: italic bold 12px/30px Georgia, serif;
+	
+}</pre>
+</td></tr>
+<tr><td>Font Stacks</td><td>
+<pre>
+/* Times New Roman-based stack */
+font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+
+/* Modern Georgia-based serif stack */
+font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+/* Traditional Garamond-based serif stack */
+font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+
+/* Helvetica/Arial-based sans serif stack */
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Verdana-based sans serif stack */
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+
+/* Trebuchet-based sans serif stack */
+font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+
+/* Impact-based sans serif stack */
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+
+/* Monospace stack */
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+</pre></td></tr>
+<tr><td>@font-face</td><td>
+@font-face {font-family: DeliciousRoman;<br>
+      src: url(http://www.font-face.com/fonts/delicious/Delicious-Roman.otf);}<br>
+p {font-family: DeliciousRoman, Helvetica, Arial, sans-serif;}</td>
+</tr>
+<tr><td>font-weight</td><td>normal, bold, bolder, lighter, number, initial, inherit</td></tr>
+<tr><td>no underline(for link)</td><td>
+a {text-decoration:none}</td></tr>
+<tr><td>Link effects</td><td>
+<a href="http://tympanus.net/Development/CreativeLinkEffects/">Creative Link Effects</a><br>
+<a href="http://tympanus.net/Development/IconHoverEffects/">Icon Hover Effects</a><br>
+<a href="http://ianlunn.github.io/Hover/">Hover.css</a></td>
+</tr>
+<tr><td>Change Text Selection Color</td><td>
+<style>.selection::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+.selection::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}</style><pre class="selection">
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+/*Within the selection selector, <strong>color</strong> and <strong>background</strong> are the only properties that work. */
+</pre>
+</td></tr>
+<tr>
+<td></td>three columns<td><pre>
+.three-column {
+  padding: 1em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
+}
+</pre>
+<style>.three-column {
+  padding: 1em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
+}</style>
+<div class="three-column" style="width:600px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac.
+</div>
+</td>
+</tr>
+<tr><td>Drop Caps</td><td>
+<style>.first_child:first-of-type::first-letter { font-size:300%; color: red; }</style>
+<pre>
+p:first-of-type::first-letter {
+	font-size:300%; color: red;
+}</pre>
+<div class="first_child">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique lobortis orci ac lacinia. Fusce eu purus eget diam vehicula auctor nec eu elit.</p><p> Morbi consequat facilisis orci vel malesuada. Donec ultrices molestie sollicitudin. Aliquam pharetra libero enim. Donec et suscipit massa.</p><p> Donec dui odio, dignissim non sodales et, tincidunt a sapien. Phasellus elit nibh, adipiscing sed blandit vel, interdum et arcu.</p>
+</div>
+
+</td></tr>
+<tr><td colspan=3 class=div>image</td></tr>
+<tr><td>Flip image</td><td>
+<pre>
+img {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+</pre>
+</td></tr>
+
+<tr><td colspan=3 class=div>Shadow, Blur</td></tr>
+<tr><td>shadow</td><td>3px 3px 5px 6px #ccc: <br>horizontal offset, vertical offset, blur radius(optional), spread radius(optional), Color</td></tr>
+<tr>
+<td>
+<pre>.shadow {
+-webkit-box-shadow: 0 8px 6px -6px black;
+-moz-box-shadow: 0 8px 6px -6px black;
+box-shadow: 0 8px 6px -6px black;
+}
+</pre>
+<div class=demo style="
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;"></div></td>
+<td><pre>.shadow {
+-moz-box-shadow:    3px 3px 5px 6px #ccc;
+-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+box-shadow:         3px 3px 5px 6px #ccc;
+}</pre>
+<div class=demo style="
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+"></div>
+</td></tr>
+<tr><td>
+<pre>
+//text-shadow
+.blur {
+color: transparent;text-shadow: 0 0 5px #333;
+}
+</pre>
+<div style="
+	color: transparent;
+   text-shadow: 0 0 5px rgba(0,0,0,0.5);">Hello</div></td>
+<td><pre>.multiple-shadow{
+text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
+}</pre>
+<div style="
+ text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;">Hello</div>
+</td></tr>
+<tr><td>
+<div class="shadow_animation">ease transition:<br><br>
+transition: [property] 0.3s ease-in-out;<br>
+-moz-transition: [property] 0.3s ease-in-out;<br>
+-webkit-transition: [property] 0.3s ease-in-out;</div></td>
+<style>.shadow_animation{padding:10px 10px;margin:5px 15px;
+background-color: #fff;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #adacac, direction = 135, strength = 2);
+	transition: box-shadow 0.3s ease-in-out;
+-moz-transition: -moz-box-shadow 0.3s ease-in-out;
+-webkit-transition: -webkit-box-shadow 0.3s ease-in-out;}
+	.shadow_animation:hover {
+    box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -moz-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -webkit-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #979797, direction = 135, strength = 3);
+}</style>
+<td><pre>.shadow{display:block;padding:10px 10px;margin:5px 15px;
+background-color: #fff;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #adacac, direction = 135, strength = 2);
+	transition: box-shadow 0.3s ease-in-out;
+-moz-transition: -moz-box-shadow 0.3s ease-in-out;
+-webkit-transition: -webkit-box-shadow 0.3s ease-in-out;padding:0 10px;}
+	.shadow:hover {
+    box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -moz-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    -webkit-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #979797, direction = 135, strength = 3);
+}</pre>
+</td></tr>
+<tr><td>
+rotate
+</td>
+<td><pre>transform:rotate(90deg);
+-ms-transform:rotate(90deg); /* IE 9 */
+-webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */</pre>
+</td></tr>
+<tr><td>
+Navbar center
+</td>
+<td><pre>
+.navbar{margin: 0 auto;width: 100%;text-align: center;height:70px;position:fixed;top:0;}
+.navbar ul{list-style: none;}
+.navbar li{display: inline-block;}//(!important, to center)
+.navbar a{height:100%;}</pre>
+</td></tr>
+<tr><td>
+<strong>Sticky Footer</strong><br>
+&lt;div class=&quot;page-wrap&quot;&gt; Content &lt;/div&gt;<br>
+&lt;footer class=&quot;site-footer&quot;&gt; Footer &lt;/footer&gt;
+</td>
+<td><pre>
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  background: orange;
+}
+</pre>
+</td></tr>
+<tr><td>Button With Line Breaks</td><td>&lt;input type="button" value="Really&amp;#x00A;Tall&amp;#x00A; Button"&gt;<br><input type="button" value="Really&#x00A;Tall&#x00A; Button"></td></tr>
+<tr><td>3D effect, 2 color, text</td><td><div class="threeD">
+	<p class="sniglet">3D text Example</p>
+	<p class="lobster"><span>Lobster in a box</span></p></div>
+<style>
+.threeD p {
+font-family: arial, serif;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+.threeD p.sniglet {
+  text-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+}
+.threeD p.lobster {
+  margin-top: 1.2em;
+}
+.threeD p.lobster span {
+  padding: 20px 40px;
+  color: #6280b7;
+  background: #fff;
+  -webkit-box-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+  -moz-box-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+  box-shadow: 1px 0px #546a92, 0px 1px #384762, 2px 1px #546a92, 1px 2px #384762, 3px 2px #546a92, 2px 3px #384762, 4px 3px #546a92, 3px 4px #384762, 5px 4px #546a92, 4px 5px #384762, 6px 5px #546a92, 5px 6px #384762, 7px 6px #546a92, 6px 7px #384762, 8px 7px #546a92, 7px 8px #384762, 8px 8px #546a92;
+}</style></td></tr>
+<tr>
+
+<td>Button style
+</td>
+<td>
+<input type="search" value="Search"/>
+<input type="number" value="55" min="0" max="100" step="5" />
+
+<style>
+input {
+    display:block;
+    padding: 2px;
+}
+
+input:focus {
+    outline-color: #236DCD;
+}
+
+input[type=search] {
+    color: #236DCD;
+    border-radius: 4px;
+}
+
+input[type=search]::-webkit-search-cancel-button  {
+    -webkit-appearance: none;
+    position:relative;
+    height: 16px;
+    width: 16px;
+    background: #d5d5d5;
+    color:#fff;
+    font-size: 1.1em;
+    text-shadow: 0 1px 0 #666;
+    border-radius: 50%;
+    margin:0;
+    cursor:pointer;
+    box-shadow: inset 0 2px 5px -2px #666; 
+}
+
+input[type=search]::-webkit-search-cancel-button:hover {
+    background: #aaa;
+}
+
+input[type=search]::-webkit-search-cancel-button:active {
+    background: #f99;
+}
+
+input[type=search]::-webkit-search-cancel-button:before {
+    content: "✕";
+    position:absolute;
+    top:0px;
+    right:3px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor:pointer;
+    display:block;
+    width:8px;
+    color: #333;
+    text-align:center;
+    position:relative;
+}
+
+input[type=number]::-webkit-inner-spin-button:hover { 
+    color: #236DCD;
+}
+
+input[type=number]::-webkit-inner-spin-button:before,
+input[type=number]::-webkit-inner-spin-button:after {
+    content: "^";
+    position:absolute;
+    right: 0;
+    font-family:monospace;
+    line-height:
+}
+
+input[type=number]::-webkit-inner-spin-button:before {
+    top:0px;
+}
+
+input[type=number]::-webkit-inner-spin-button:after {
+    bottom:0px;
+    -webkit-transform: rotate(180deg);
+}</style>
+<input type="button" id="btn" value="Button"/>
+<style>#btn{
+padding: 5px 8px;
+font-size: 16px;
+line-height: 1.33;
+border-radius: 6px;
+color: #333;
+border-color: #ccc;
+cursor: pointer;
+text-align: center;
+white-space: nowrap;
+border: 1px solid rgb(0, 113, 153);}
+#btn:hover{background-color:#afd9ee}</style>
+</td>
+</tr>
+<tr>
+<td style="background-color:#888"><div class="corners">
+   Tucked Corners
+</div>
+</td>
+<td>
+<pre>.corners { 
+    background: #f6f6f6;
+    height: 70px;
+    margin: 50px auto;
+    padding:20px 5px 5px 15px;
+    max-width: 600px;
+    position: relative;
+    width: 80%;
+    -webkit-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+       -moz-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+            box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+}
+/* Corner Effect */
+.corners:after,
+.corners:before {
+    background: #e6e6e6;
+    content: '';
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    width: 100px;
+    -webkit-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+       -moz-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+            box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+}
+.corners:after {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+.corners:before {
+    right: -50px;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+}</pre>
+<style>
+.corners { 
+    background: #f6f6f6;
+    height: 70px;
+    margin: 50px auto;
+    padding:20px 5px 5px 15px;
+    max-width: 600px;
+    position: relative;
+    width: 80%;
+    -webkit-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+       -moz-box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+            box-shadow: 0 1px 7px hsla(0,0%,0%,.2);
+}
+/* Corner Effect */
+.corners:after,
+.corners:before {
+    background: #e6e6e6;
+    content: '';
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    width: 100px;
+    -webkit-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+       -moz-box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+            box-shadow: 0 5px 10px -7px hsla(0,0%,0%,.5);
+}
+.corners:after {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+.corners:before {
+    right: -50px;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+}</style>
+</td>
+</tr>
+<tr><td>stitched</td><td><style>
+.stitched {
+   padding: 20px;
+   margin: 10px;
+   background: #ff0030;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+}</style><div class="stitched">Stitched</div></td></tr>
+
+<tr><td>corner ribbon</td><td>
+<style>.wrapper-ribbon {
+  margin: 50px auto;
+  width: 280px;
+  height: 370px;
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 8px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 90;
+}
+
+.ribbon-wrapper-green {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}
+
+.ribbon-green {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: #BFDC7A;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+  color: #6a6340;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-green:before, .ribbon-green:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-green:before {
+  left: 0;
+}
+.ribbon-green:after {
+  right: 0;
+}</style>
+<div class="wrapper-ribbon">
+       <div class="ribbon-wrapper-green"><div class="ribbon-green">NEWS</div></div>
+</div></td></tr>
+<tr><td></td><td><style></style><div></div></td></tr>
+</table>
